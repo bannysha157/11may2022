@@ -1,0 +1,1001 @@
+
+dell@DESKTOP-763I8B2 MINGW64 ~ (master)
+$ mkdir 11may2022
+
+dell@DESKTOP-763I8B2 MINGW64 ~ (master)
+$ cd 11may2022
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git init
+Initialized empty Git repository in C:/Users/dell/11may2022/.git/
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ touch file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ vim file1.txt
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git add file1.txt
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ gir config --global use.name "bannysha"
+bash: gir: command not found
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git config --global use.name "bannysha"
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git config --global use.email "manyapubannysha20002gmail.com"
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git commit -m "first commit"
+[master (root-commit) 9112a86] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git remote add orgin "https://github.com/bannysha157/11may2022.git"
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git push -u orgin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 226 bytes | 226.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/bannysha157/11may2022.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'orgin/master'.
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588 (HEAD -> master, orgin/master)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ ls
+file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git branch
+* master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git branch b1
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git branch
+  b1
+* master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git checkout b1
+Switched to branch 'b1'
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (b1)
+$ git branch
+* b1
+  master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (b1)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'orgin/master'.
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git checkout -b b2
+Switched to a new branch 'b2'
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (b2)
+$ git branch
+  b1
+* b2
+  master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (b2)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'orgin/master'.
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git branch
+  b1
+  b2
+* master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git checkout -d b2
+HEAD is now at 9112a86 first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 ((9112a86...))
+$ git branch
+* (HEAD detached at refs/heads/b2)
+  b1
+  b2
+  master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 ((9112a86...))
+$ git checkout -b b2
+fatal: a branch named 'b2' already exists
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 ((9112a86...))
+$ git branch
+* (HEAD detached at refs/heads/b2)
+  b1
+  b2
+  master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 ((9112a86...))
+$ git branch -b b2
+error: unknown switch `b'
+usage: git branch [<options>] [-r | -a] [--merged] [--no-merged]
+   or: git branch [<options>] [-l] [-f] <branch-name> [<start-point>]
+   or: git branch [<options>] [-r] (-d | -D) <branch-name>...
+   or: git branch [<options>] (-m | -M) [<old-branch>] <new-branch>
+   or: git branch [<options>] (-c | -C) [<old-branch>] <new-branch>
+   or: git branch [<options>] [-r | -a] [--points-at]
+   or: git branch [<options>] [-r | -a] [--format]
+
+Generic options
+    -v, --verbose         show hash and subject, give twice for upstream branch
+    -q, --quiet           suppress informational messages
+    -t, --track[=(direct|inherit)]
+                          set branch tracking configuration
+    -u, --set-upstream-to <upstream>
+                          change the upstream info
+    --unset-upstream      unset the upstream info
+    --color[=<when>]      use colored output
+    -r, --remotes         act on remote-tracking branches
+    --contains <commit>   print only branches that contain the commit
+    --no-contains <commit>
+                          print only branches that don't contain the commit
+    --abbrev[=<n>]        use <n> digits to display object names
+
+Specific git-branch actions:
+    -a, --all             list both remote-tracking and local branches
+    -d, --delete          delete fully merged branch
+    -D                    delete branch (even if not merged)
+    -m, --move            move/rename a branch and its reflog
+    -M                    move/rename a branch, even if target exists
+    -c, --copy            copy a branch and its reflog
+    -C                    copy a branch, even if target exists
+    -l, --list            list branch names
+    --show-current        show current branch name
+    --create-reflog       create the branch's reflog
+    --edit-description    edit the description for the branch
+    -f, --force           force creation, move/rename, deletion
+    --merged <commit>     print only branches that are merged
+    --no-merged <commit>  print only branches that are not merged
+    --column[=<style>]    list branches in columns
+    --sort <key>          field name to sort on
+    --points-at <object>  print only branches of the object
+    -i, --ignore-case     sorting and filtering are case insensitive
+    --format <format>     format to use for the out
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 ((9112a86...))
+$ git branch
+* (HEAD detached at refs/heads/b2)
+  b1
+  b2
+  master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 ((9112a86...))
+$ git branch -d b2
+Deleted branch b2 (was 9112a86).
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 ((9112a86...))
+$ git branch
+* (HEAD detached at 9112a86)
+  b1
+  master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 ((9112a86...))
+$ ls
+file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 ((9112a86...))
+$ cat file1.txt
+programming
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 ((9112a86...))
+$ git checkout b1
+Switched to branch 'b1'
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (b1)
+$ git log
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588 (HEAD -> b1, orgin/master, master)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (b1)
+$ ls
+file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (b1)
+$ vim file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (b1)
+$ git add file1.txt
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (b1)
+$ git commit -m "added lines to file.txt"
+[b1 ae645ae] added lines to file.txt
+ 1 file changed, 1 insertion(+)
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (b1)
+$ git log
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (HEAD -> b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588 (orgin/master, master)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (b1)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'orgin/master'.
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588 (HEAD -> master, orgin/master)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git merge b1
+Updating 9112a86..ae645ae
+Fast-forward
+ file1.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (HEAD -> master, b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588 (orgin/master)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git push orgin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 268 bytes | 268.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/bannysha157/11may2022.git
+   9112a86..ae645ae  master -> master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (HEAD -> master, orgin/master, b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git fetch orgin master
+From https://github.com/bannysha157/11may2022
+ * branch            master     -> FETCH_HEAD
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (HEAD -> master, orgin/master, b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git fetch orgin master
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 645 bytes | 46.00 KiB/s, done.
+From https://github.com/bannysha157/11may2022
+ * branch            master     -> FETCH_HEAD
+   ae645ae..62e0244  master     -> orgin/master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (HEAD -> master, b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git fetch orgin master
+From https://github.com/bannysha157/11may2022
+ * branch            master     -> FETCH_HEAD
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git remote add all "https://github.com/bannysha157/11may2022.git" 
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (HEAD -> master, b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git fetch orgin master
+From https://github.com/bannysha157/11may2022
+ * branch            master     -> FETCH_HEAD
+
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (HEAD -> master, b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (HEAD -> master, b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git fetch orgin master
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 652 bytes | 59.00 KiB/s, done.
+From https://github.com/bannysha157/11may2022
+ * branch            master     -> FETCH_HEAD
+   62e0244..c4c0a56  master     -> orgin/master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+
+$ git remote -v
+all     https://github.com/bannysha157/11may2022.git (fetch)
+all     https://github.com/bannysha157/11may2022.git (push)
+orgin   https://github.com/bannysha157/11may2022.git (fetch)
+orgin   https://github.com/bannysha157/11may2022.git (push)
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git push -u all master
+To https://github.com/bannysha157/11may2022.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/bannysha157/11may2022.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (HEAD -> master, b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git fetch all master
+From https://github.com/bannysha157/11may2022
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> all/master
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git merge all/master
+Updating ae645ae..c4c0a56
+Fast-forward
+ file1.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+feel fredom
+freedom
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ vim file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git status
+On branch master
+Your branch is up to date with 'orgin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a"
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git add file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git commit -m "third commit"
+[master 2221e15] third commit
+ 1 file changed, 1 insertion(+)
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit 2221e1565ea0aa364ceead0306c7df7a7d920322 (HEAD -> master)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 11:26:13 2022 +0530
+
+    third commit
+
+commit c4c0a56a156351582ab70a2398341df0d209ec3f (orgin/master, all/master)
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:10:39 2022 +0530
+
+    Update file1.txt
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+:
+commit 2221e1565ea0aa364ceead0306c7df7a7d920322 (HEAD -> master)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 11:26:13 2022 +0530
+
+    third commit
+
+commit c4c0a56a156351582ab70a2398341df0d209ec3f (orgin/master, all/master)
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:10:39 2022 +0530
+
+    Update file1.txt
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git reset --mixed HEAD~1
+Unstaged changes after reset:
+M       file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git status
+On branch master
+Your branch is up to date with 'orgin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit c4c0a56a156351582ab70a2398341df0d209ec3f (HEAD -> master, orgin/master, all/master)
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:10:39 2022 +0530
+
+    Update file1.txt
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+(END)
+in/master, all/master)
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:10:39 2022 +0530
+
+    Update file1.txt
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+$ git status
+On branch master
+Your branch is up to date with 'orgin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+feel fredom
+freedom
+jii
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ ls
+file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ vim file1.txt
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git status
+On branch master
+Your branch is up to date with 'orgin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git add file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git commit -m "soft reset"
+[master 768d52c] soft reset
+ 1 file changed, 2 insertions(+)
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit 768d52c0cc2d1790e35e4e787e9d5fd6c5217791 (HEAD -> master)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 11:34:49 2022 +0530
+
+    soft reset
+
+commit c4c0a56a156351582ab70a2398341df0d209ec3f (orgin/master, all/master)
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:10:39 2022 +0530
+
+    Update file1.txt
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git reset --soft HEAD~1
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git status
+On branch master
+Your branch is up to date with 'orgin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file1.txt
+
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit c4c0a56a156351582ab70a2398341df0d209ec3f (HEAD -> master, orgin/master, all/master)
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:10:39 2022 +0530
+
+    Update file1.txt
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+(END)
+in/master, all/master)
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:10:39 2022 +0530
+
+    Update file1.txt
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ vim file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git add file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git commit -m "har reset"
+[master d7b1379] har reset
+ 1 file changed, 3 insertions(+)
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git commit -m "hard reset"
+On branch master
+Your branch is ahead of 'orgin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit d7b1379e27b3b444e7676ff773dc7e9c676addaa (HEAD -> master)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 11:38:37 2022 +0530
+
+    har reset
+
+commit c4c0a56a156351582ab70a2398341df0d209ec3f (orgin/master, all/master)
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:10:39 2022 +0530
+
+    Update file1.txt
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git reset --hard HEAD~1
+HEAD is now at c4c0a56 Update file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit c4c0a56a156351582ab70a2398341df0d209ec3f (HEAD -> master, orgin/master, all/master)
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:10:39 2022 +0530
+
+    Update file1.txt
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+(END)
+in/master, all/master)
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:10:39 2022 +0530
+
+    Update file1.txt
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+feel fredom
+freedom
+
+
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit c4c0a56a156351582ab70a2398341df0d209ec3f (HEAD -> master, orgin/master, all/master)
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:10:39 2022 +0530
+
+    Update file1.txt
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+feel fredom
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ vim  file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git add  file1.txt
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git status
+On branch master
+Your branch is behind 'orgin/master' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file1.txt
+
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git commit -m "revert commit"
+[master f202e1b] revert commit
+ 1 file changed, 1 insertion(+)
+
+
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ git log
+commit f202e1b500bfd43645a6ca78468ba0d0ce28675b (HEAD -> master)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 11:46:36 2022 +0530
+
+    revert commit
+
+commit 62e0244133544cf823c1cde760d6aad39d251f45
+Author: bannysha157 <98574529+bannysha157@users.noreply.github.com>
+Date:   Wed May 11 11:02:42 2022 +0530
+
+    Update file1.txt
+
+commit ae645ae7e48a72840bfbd4941e265132261cca3c (b1)
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:43:55 2022 +0530
+
+    added lines to file.txt
+
+commit 9112a8653dbcbc41c8a2e2b64f19a2960595d588
+Author: bannysha <manyapubannysha2000@gmail.com>
+Date:   Wed May 11 10:33:38 2022 +0530
+
+    first commit
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+git push origin master^C
+
+dell@DESKTOP-763I8B2 MINGW64 ~/11may2022 (master)
+$ cat file1.txt
+programming
+program
+feel fredom
+hii
+
+
+
+
+
+
+
+
+
+
+
+
+
+
